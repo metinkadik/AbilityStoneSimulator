@@ -8,7 +8,7 @@
 		var rowOneCounter = 0;
 		function rowOneClick()
 		{
-			if (rowOneCounter == 10)
+			if (rowOneCounter == 8)
 			{
 				return;
 			}
@@ -30,7 +30,7 @@
 		var rowTwoCounter = 0;
 		function rowTwoClick()
 		{
-			if (rowTwoCounter == 10)
+			if (rowTwoCounter == 8)
 			{
 				return;
 			}
@@ -52,14 +52,14 @@
 		var rowThreeCounter = 0;
 		function rowThreeClick()
 		{
-			if (rowThreeCounter == 10)
+			if (rowThreeCounter == 8)
 			{
 				return;
 			}
 			
 			if (Math.random() * 100 < currentPercentChance)
 			{
-				$("#rowThree_" + rowThreeCounter).attr("src", "Images/success.png");
+				$("#rowThree_" + rowThreeCounter).attr("src", "Images/success2.png");
 				updatePercentChance(true);
 			}
 			else
@@ -124,67 +124,79 @@
 			z-index:1;
 		}
 		._0 {
-			top: 83px;
-			left: 225px;
+			top: 85px;
+			left: 223px;
 		}
 		._1 {
-			top: 83px;
-			left: 305px;
+			top: 85px;
+			left: 303px;
 		}
 		._2 {
-			top: 83px;
-			left: 380px;
+			top: 85px;
+			left: 378px;
 		}
 		._3 {
-			top: 83px;
-			left: 455px;
+			top: 85px;
+			left: 453px;
 		}
 		._4 {
-			top: 83px;
-			left: 532px;
+			top: 85px;
+			left: 530px;
 		}
 		._5 {
-			top: 83px;
-			left: 610px;
+			top: 85px;
+			left: 608px;
 		}
 		._6 {
-			top: 83px;
-			left: 685px;
+			top: 85px;
+			left: 683px;
 		}
 		._7 {
-			top: 83px;
-			left: 765px;
-		}
-		._8 {
-			top: 83px;
-			left: 845px;
-		}
-		._9 {
-			top: 83px;
-			left: 915px;
+			top: 85px;
+			left: 763px;
 		}
         .row input {
 			position: absolute;
-			top: 19px;
-			left: 997px;
+			top: 14px;
+			left: 1002px;
 			height: 141px;
 			width: 197px;
 			padding: 0px;
 			margin: 0px;
         }
-		
-		.btn {
-			width: 25%;
-		}
+		.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+	
     </style>
 </head>
 <body>
-	<div class="row">
-		<h1>Success Percent Chance: <i id="chance">75</i></h1>
-		<button type="button" class="btn btn-dark" onclick="reset()">Reset</button
-	</div>
+<div class="row">
+		<font size="8" color="maroon" face="tahoma">Geçme Şansı: <i id="chance">75</i></font>
+		<button class="button button1" onclick="reset()">Reset</button
+</div>
     <div class="row">
-		<img class="background" src="Images/engraving.png">
+		<img class="background" src="Images/buff.png">
 		<input type="image" src="Images/blueHammerUncolored.png" onMouseOver="this.src='Images/blueHammer.png'" onMouseOut="this.src='Images/blueHammerUncolored.png'" onclick="rowOneClick()" />
 		<img id="rowOne_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowOne_1" class="marker _1" src="Images/noMarker.png">
@@ -194,11 +206,9 @@
 		<img id="rowOne_5" class="marker _5" src="Images/noMarker.png">
 		<img id="rowOne_6" class="marker _6" src="Images/noMarker.png">
 		<img id="rowOne_7" class="marker _7" src="Images/noMarker.png">
-		<img id="rowOne_8" class="marker _8" src="Images/noMarker.png">
-		<img id="rowOne_9" class="marker _9" src="Images/noMarker.png">
     </div>
 	<div class="row">
-		<img class="background" src="Images/engraving.png">
+		<img class="background" src="Images/buff2.png">
 		<input type="image" src="Images/blueHammerUncolored.png" onMouseOver="this.src='Images/blueHammer.png'" onMouseOut="this.src='Images/blueHammerUncolored.png'" onclick="rowTwoClick()" />
 		<img id="rowTwo_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowTwo_1" class="marker _1" src="Images/noMarker.png">
@@ -208,11 +218,9 @@
 		<img id="rowTwo_5" class="marker _5" src="Images/noMarker.png">
 		<img id="rowTwo_6" class="marker _6" src="Images/noMarker.png">
 		<img id="rowTwo_7" class="marker _7" src="Images/noMarker.png">
-		<img id="rowTwo_8" class="marker _8" src="Images/noMarker.png">
-		<img id="rowTwo_9" class="marker _9" src="Images/noMarker.png">
 	</div>
 	<div class="row">
-		<img class="background" src="Images/malice.png">
+		<img class="background" src="Images/debuff.png">
 		<input type="image" src="Images/redHammerUncolored.png" onMouseOver="this.src='Images/redHammer.png'" onMouseOut="this.src='Images/redHammerUncolored.png'" onclick="rowThreeClick()" />
 		<img id="rowThree_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowThree_1" class="marker _1" src="Images/noMarker.png">
@@ -222,11 +230,8 @@
 		<img id="rowThree_5" class="marker _5" src="Images/noMarker.png">
 		<img id="rowThree_6" class="marker _6" src="Images/noMarker.png">
 		<img id="rowThree_7" class="marker _7" src="Images/noMarker.png">
-		<img id="rowThree_8" class="marker _8" src="Images/noMarker.png">
-		<img id="rowThree_9" class="marker _9" src="Images/noMarker.png">
 	</div>
-    <div class="row">
 
-    </div>
+
 </body>
 </html>
