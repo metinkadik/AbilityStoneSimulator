@@ -6,17 +6,23 @@
     <script>
 		var currentPercentChance = 75;
 		var rowOneCounter = 0;
+		var music = new Audio('Images/audio.mp3');
+		var rowOneSuccessCounter = 0;
+		var rowTwoSuccessCounter = 0;
+		var rowThreeSuccessCounter = 0;
 		function rowOneClick()
 		{
+			
 			if (rowOneCounter == 8)
 			{
 				return;
 			}
-			
+			music.play();
 			if (Math.random() * 100 < currentPercentChance)
 			{
 				$("#rowOne_" + rowOneCounter).attr("src", "Images/success.png");
 				updatePercentChance(true);
+				rowOneSuccessCounter++;
 			}
 			else
 			{
@@ -25,6 +31,13 @@
 			}
 			
 			rowOneCounter++;
+			
+			if (rowOneCounter == 8 && rowTwoCounter == 8 && rowThreeCounter == 8 )
+			{
+				$("#p1").text(rowOneSuccessCounter+'X');
+				$("#p2").text(rowTwoSuccessCounter+'X');
+				$("#p3").text(rowThreeSuccessCounter+'X'); 
+			}
 		}
 		
 		var rowTwoCounter = 0;
@@ -34,11 +47,12 @@
 			{
 				return;
 			}
-
+			music.play();
 			if (Math.random() * 100 < currentPercentChance)
 			{
 				$("#rowTwo_" + rowTwoCounter).attr("src", "Images/success.png");
 				updatePercentChance(true);
+				rowTwoSuccessCounter++;
 			}
 			else
 			{
@@ -47,20 +61,29 @@
 			}
 			
 			rowTwoCounter++;
+			
+			if (rowOneCounter == 8 && rowTwoCounter == 8 && rowThreeCounter == 8 )
+			{
+				$("#p1").text(rowOneSuccessCounter+'X');
+				$("#p2").text(rowTwoSuccessCounter+'X');
+				$("#p3").text(rowThreeSuccessCounter+'X'); 
+			}
 		}
 		
 		var rowThreeCounter = 0;
 		function rowThreeClick()
 		{
+
 			if (rowThreeCounter == 8)
 			{
 				return;
 			}
-			
+			music.play();
 			if (Math.random() * 100 < currentPercentChance)
 			{
 				$("#rowThree_" + rowThreeCounter).attr("src", "Images/success2.png");
 				updatePercentChance(true);
+				rowThreeSuccessCounter++;
 			}
 			else
 			{
@@ -69,6 +92,13 @@
 			}
 			
 			rowThreeCounter++;
+			
+			if (rowOneCounter == 8 && rowTwoCounter == 8 && rowThreeCounter == 8 )
+			{
+				$("#p1").text(rowOneSuccessCounter+'X');
+				$("#p2").text(rowTwoSuccessCounter+'X');
+				$("#p3").text(rowThreeSuccessCounter+'X'); 
+			}
 		}
 		
 		function updatePercentChance(success)
@@ -102,6 +132,12 @@
 			rowThreeCounter = 0;
 			currentPercentChance = 75;
 			$("#chance").text(currentPercentChance);
+			rowOneSuccessCounter = 0;
+			rowTwoSuccessCounter = 0;
+			rowThreeSuccessCounter = 0;
+			$("#p1").text("");
+			$("#p2").text("");
+			$("#p3").text("");
 		}
     </script>
     <style>
@@ -157,36 +193,42 @@
 		}
         .row input {
 			position: absolute;
-			top: 14px;
-			left: 1002px;
+			top: 20px;
+			left: 1008px;
 			height: 141px;
 			width: 197px;
 			padding: 0px;
 			margin: 0px;
         }
+		 .row p {
+			width: 20%;
+			padding: 1%;
+			margin: 1%;
+        }
 		.button {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
+		.button1 {
+			background-color: white; 
+			color: black; 
+			border: 2px solid #4CAF50;
+		}
 
-.button1:hover {
-  background-color: #4CAF50;
-  color: white;
-}
+		.button1:hover {
+			background-color: #4CAF50;
+			color: white;
+		}
+		
 	
     </style>
 </head>
@@ -195,9 +237,11 @@
 		<font size="8" color="maroon" face="tahoma">Geçme Şansı: %<i id="chance">75</i></font>
 		<button class="button button1" onclick="reset()">Reset</button
 </div>
-    <div class="row">
+
+    <div class="row">	
 		<img class="background" src="Images/buff.png">
 		<input type="image" src="Images/blueHammerUncolored.png" onMouseOver="this.src='Images/blueHammer.png'" onMouseOut="this.src='Images/blueHammerUncolored.png'" onclick="rowOneClick()" />
+		<p style="font-size:50px;font-family:tahoma;color:#6495ED;" face="tahoma" id="p1"></p>
 		<img id="rowOne_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowOne_1" class="marker _1" src="Images/noMarker.png">
 		<img id="rowOne_2" class="marker _2" src="Images/noMarker.png">
@@ -207,9 +251,11 @@
 		<img id="rowOne_6" class="marker _6" src="Images/noMarker.png">
 		<img id="rowOne_7" class="marker _7" src="Images/noMarker.png">
     </div>
+
 	<div class="row">
 		<img class="background" src="Images/buff2.png">
 		<input type="image" src="Images/blueHammerUncolored.png" onMouseOver="this.src='Images/blueHammer.png'" onMouseOut="this.src='Images/blueHammerUncolored.png'" onclick="rowTwoClick()" />
+		<p style="font-size:50px;font-family:tahoma;color:#6495ED;" face="tahoma" id="p2"></p>
 		<img id="rowTwo_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowTwo_1" class="marker _1" src="Images/noMarker.png">
 		<img id="rowTwo_2" class="marker _2" src="Images/noMarker.png">
@@ -222,6 +268,7 @@
 	<div class="row">
 		<img class="background" src="Images/debuff.png">
 		<input type="image" src="Images/redHammerUncolored.png" onMouseOver="this.src='Images/redHammer.png'" onMouseOut="this.src='Images/redHammerUncolored.png'" onclick="rowThreeClick()" />
+		<p style="font-size:50px;font-family:tahoma;color:#A52A2A;" id="p3"></p>
 		<img id="rowThree_0" class="marker _0" src="Images/noMarker.png">
 		<img id="rowThree_1" class="marker _1" src="Images/noMarker.png">
 		<img id="rowThree_2" class="marker _2" src="Images/noMarker.png">
